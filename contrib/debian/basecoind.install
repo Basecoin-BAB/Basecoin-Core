@@ -1,0 +1,3 @@
+usr/local/bin/basecoind usr/bin
+usr/local/bin/basecoin-cli usr/bin
+debian/examples/basecoin.conf etc/basecoin

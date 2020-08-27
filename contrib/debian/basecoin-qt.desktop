@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Basecoin Core
+Comment=Basecoin P2P Cryptocurrency
+Comment[fr]=Basecoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Basecoin, eşten eşe kriptografik sanal para birimi
+Exec=basecoin-qt %u
+Terminal=false
+Type=Application
+Icon=basecoin128
+MimeType=x-scheme-handler/basecoin;
+Categories=Office;Finance;
+StartupWMClass=Basecoin-qt

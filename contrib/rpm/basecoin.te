@@ -1,0 +1,81 @@
+policy_module(basecoin, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type basecoin_t;
+type basecoin_exec_t;
+init_daemon_domain(basecoin_t, basecoin_exec_t)
+
+permissive basecoin_t;
+
+type basecoin_initrc_exec_t;
+init_script_file(basecoin_initrc_exec_t)
+
+type basecoin_conf_t;
+files_type(basecoin_conf_t)
+
+type basecoin_var_lib_t;
+files_type(basecoin_var_lib_t)
+
+type basecoin_var_run_t;
+files_type(basecoin_var_run_t)
+
+type basecoin_port_t;
+corenet_port(basecoin_port_t)
+
+########################################
+#
+# basecoin local policy
+#
+allow basecoin_t self:process { fork };
+
+allow basecoin_t self:fifo_file rw_fifo_file_perms;
+allow basecoin_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(basecoin_t, basecoin_conf_t, basecoin_conf_t)
+manage_files_pattern(basecoin_t, basecoin_conf_t, basecoin_conf_t)
+
+manage_dirs_pattern(basecoin_t, basecoin_var_lib_t, basecoin_var_lib_t)
+manage_files_pattern(basecoin_t, basecoin_var_lib_t, basecoin_var_lib_t)
+files_var_lib_filetrans(basecoin_t, basecoin_var_lib_t, { dir file })
+
+manage_dirs_pattern(basecoin_t, basecoin_var_run_t, basecoin_var_run_t)
+manage_files_pattern(basecoin_t, basecoin_var_run_t, basecoin_var_run_t)
+
+sysnet_dns_name_resolve(basecoin_t)
+corenet_all_recvfrom_unlabeled(basecoin_t)
+
+allow basecoin_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(basecoin_t)
+corenet_tcp_sendrecv_generic_node(basecoin_t)
+corenet_tcp_sendrecv_all_ports(basecoin_t)
+corenet_tcp_bind_generic_node(basecoin_t)
+
+gen_require(`
+    type basecoin_port_t;
+')
+allow basecoin_t basecoin_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type basecoin_port_t;
+')
+allow basecoin_t basecoin_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(basecoin_t)
+
+files_read_etc_files(basecoin_t)
+
+miscfiles_read_localization(basecoin_t)
+
+sysnet_dns_name_resolve(basecoin_t)
+
+allow basecoin_t basecoin_exec_t:file execute_no_trans;
+allow basecoin_t self:process setsched;
+corecmd_exec_ls(basecoin_t)
+corenet_tcp_connect_http_port(basecoin_t)
+dev_read_urand(basecoin_t)
+fs_getattr_xattr_fs(basecoin_t)
+kernel_read_system_state(basecoin_t)
