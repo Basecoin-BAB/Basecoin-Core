@@ -7,7 +7,7 @@
 
 # Add Nodes
 ```
-#basecoin.conf
+# basecoin.conf
 addnode = 72.19.15.173
 addnode = 173.249.39.84
 addnode = 173.249.34.236
