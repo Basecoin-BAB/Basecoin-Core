@@ -6,8 +6,8 @@
 [![How to install and configure the BAB/BaseCoin Wallet](http://img.youtube.com/vi/-HglCvikwDw/0.jpg)](http://www.youtube.com/watch?v=-HglCvikwDw "How to install and configure the BAB/BaseCoin Wallet")
 
 # Add Nodes
-basecoin.conf
 ```
+basecoin.conf
 addnode = 72.19.15.173
 addnode = 173.249.39.84
 addnode = 173.249.34.236
