@@ -1,5 +1,5 @@
 # Basecoin-Core
-⭐Basecoin is a decentralized token, intended for day-to-day adoption and usability and designed with independent development. Its main objective is to be an alternative means of payment in companies and businesses, physical and online. And also for payment of bank slips, recharge for cell phone, phone bills, and other types of services. One of Basecoin's peculiar characteristics is to provide convenience, reliability, speed, and security when making your transactions.
+⭐Basecoin is a decentralized cryptocurrency, intended for day-to-day adoption and usability and designed with independent development. Its main objective is to be an alternative means of payment in companies and businesses, physical and online. And also for payment of bank slips, recharge for cell phone, phone bills, and other types of services. One of Basecoin's peculiar characteristics is to provide convenience, reliability, speed, and security when making your transactions.
 
 ![Official Repository - PoS/MN](https://github.com/Basecoin-BAB/Basecoin-Core/blob/master/Sem%20Título-1.png)
 # How to install and configure the BAB/BaseCoin Wallet
