@@ -60,191 +60,51 @@ Port                   70916
 Protocol               Zerocoin
 ```
 # How to Create Your Basecoin Masternodes
-Prepare your VPS 
-Install Ubuntu Server 18.04 on a VPS. 
-Update your Ubuntu machine. 
+Ubuntu Server 18.04 on a VPS. 
+Desktop CONSOLE WALLET commands
+1st - createmasternodekey
+2nd - getmasternodeoutputs
+
+VPS command line
 ```
-sudo apt-get update
-sudo apt-get upgrade
+wget && https://www.youtube.com/redirect?q=https%3A%2F%2Fraw.githubusercontent.com%2FViniciusBitnoob%2FBitnodes%2Fmaster%2FMnBasecoin_Ubunto18.sh&v=4hLQv_yh0mA&redir_token=QUFFLUhqa1BjVUt3NHhseTExZWQ0aGdlZm5teGtmalNBZ3xBQ3Jtc0tuTEJJam5uaXhHZkc2czM0OVBXS2REeEFBSXc2REdKdkZ6cTJ5azFzTTNxWFU5b0lNNS1mMlVrQloxTlJPX05oUGUwWXc0c1VwNlcyNk84ak54bC1OTWp1VXN6UkY5TXFPVmNpM0h1SktZbzloZXhlRQ%3D%3D&event=video_description bash MnBasecoin_Ubunto18. sh
 ```
-Install the necessary dependencies.
+Stop Masternode (VPS)
 ```
-sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-test-dev libboost-thread-dev libboost-all-dev libboost-program-options-dev
-
-sudo apt-get install libminiupnpc-dev libzmq3-dev libprotobuf-dev protobuf-compiler unzip software-properties-common
+~ / bab /./ basecoin-cli stop
 ```
-Install Berkeley DB. 
+Start Masternode (VPS)
 ```
-sudo add-apt-repository ppa: bitcoin / bitcoin
-sudo apt-get update
-sudo apt-get install libdb4.8-dev libdb4.8 ++ - dev
+~ / bab /./ basecoind &
 ```
-Download the daemon. 
+Verify Synchronization (VPS)
 ```
-wget "https://github.com/Basecoin-BAB/Basecoin-Core/releases/download/V1.0.0.0/basecoin-daemon-linux.tar.gz" -The basecoin-daemon-linux.tar.gz
-
-wget "https://github.com/Basecoin-BAB/Basecoin-Core/releases/download/V1.0.0.0/basecoin-qt-linux.tar.gz" -The basecoin-qt-linux.tar.gz
+~ / bab /./ basecoin-cli mnsync status
 ```
-
-
-Extract the tar files. 
+Check Masternode Status (VPS)
 ```
-tar -xzvf basecoin-daemon-linux.tar.gz
-tar -xzvf basecoin-qt-linux.tar.gz
+~ / bab /./ basecoin-cli getmasternodestatus
 ```
-Install the daemon and tools.
+Check blocks and network information. (VPS)
 ```
-sudo mv basecoin basecoin-cli basecoin-tx / usr / bin /
+~ / bab /./ basecoin-cli getinfo
 ```
-Create the configuration file. 
+Consult disk memory. (VPS)
 ```
-mkdir $ HOME / .basecoin
-nano $ HOME / .basecoin / basecoin.conf
+df -mh
 ```
-Paste the following lines into basecoin.conf. 
+Consult swap memory. (VPS)
 ```
-# ----
-rpcuser = rpc_basecoin
-rpcpassword = kuw05sqio7bcm8z96o7redv17xws1lw6xpd1qf33
-rpcallowip = 127.0.0.1
-# ----
-listen = 1
-server = 1
-daemon = 1
-maxconnections = 64
-# ----
-# masternode = 1
-# masternodeprivkey =
-externalip = REPLACE_WITH_EXTERNAL_IP_OF_VPS
-# ----
+free -mh
 ```
-Leave the "masternode" and "masternodeprivkey" fields commented out.
-
-Replace the text "REPLACE_WITH_EXTERNAL_IP_OF_VPS" with your VPS external IP address.
-
-EXAMPLE externalip = 136.144.171.201
-
-Start your node with the following command.
-
-basecoind
-
-Wait until the daemon finishes downloading the blockchain.
-
-Send warranty (5000 BAB)
-Open your desktop wallet and wait for your wallet to download the blockchain.
-
-Go to "Tools".
-
-Click on "Debug console".
-
-This is the console where you will run all commands.
-
-Create a new masternode private key.
-
-createmasternodekey
+Consult Processor usage. (VPS)
 ```
-Sample output
-
-7VatfYVk5fFMTymPDhgSURAESDACJhWpd89WHGohPj5
+htop
 ```
-Show your warranty address.
-
-getaccountaddress “MN1” (when placing it remove the quotes)
+Start Masternode (DESKTOP)
 ```
-Sample output
-
-B5XBXknpQnVEbYsiL8cBRfPv22cqcsCF7W
-```
-Transfer the required amount of coins (5000 BAB) to the "guarantee address" you created using the "getaccountaddress" MN1 "" command.
-
-Wait until the transaction has the required 15 master code confirmations.
-
-Go to "Tools".
-
-Click on "Debug console".
-
-Enter the following command.
-
-getmasternodeoutputs
-```
-Sample output
-
-[
-{
-"txhash":
-"506a242ccbfd2555bcd9cff5f40417acc83ccfe0cf8808df9",
-"outputidx": 1
-}
-]
+startmasternode alias false mn1
 ```
 
-Go to "Tools".
-
-Click "Open masternode configuration file".
-
-Modify the following line and paste it into the notepad.
-```
-MN1 136.144.171.201:21392 7VatfYVk5fFMTymPDhgSURAESDACJhWpd89WHGoh35d9fbLQPj5 506a242ccbfd2555bcd9cff5f4041752c911f39cb2905acc83ccdf0cf8808
-```
-
-Save the file and close the notepad.
-
-Close your wallet.
-
-Register your masternode
-Place the masternode private key in your masternode's configuration file and uncomment the “masternode” and “masternodeprivkey” values.
-
-Configuration example 
-```
-# ----
-rpcuser = rpc_nioshares
-rpcpassword = kuw05sqio7bcm8z96o7redv17xws1lw6xpd1qf33
-rpcallowip = 127.0.0.1
-# ----
-listen = 1
-server = 1
-daemon = 1
-maxconnections = 64
-# ---- masternode = 1
-masternodeprivkey = 7VatfYVk5fFMTymPDhgSURAESDACJhWpd89WHGoh3j5 externalip = 136.144.171.201
-# ----
-```
-Restart your masternode using the following commands. 
-```
-basecoin-cli stop
-basecoind
-```
-Now open your desktop wallet.
-
-Go to settings ".
-
-Click "Unlock wallet".
-
-Enter your wallet password and unlock it.
-
-Go to "Tools".
-
-Click on "Debug console".
-
-Start your masternode using the command
-```
-startmasternode alias false MN1
-```
-Your masternode is now registered and will appear in the masternode list.
-
-You can check the status of your masternode using the "getmasternodestatus" command.
-
-Basecoin-cli getmasternodestatus
-```
-Sample output 
-{
-"txhash":
-"506a242ccbfd2555bcd9cff5f4041752c911f39cb2905acc83ccfe0cf8808df9",
-"outputidx": 1,
-"netaddr": "136.144.171.201:9999",
-"addr": "TDC99hZmSmYEcBu4WcxA2TCT6KBqHB6Hos",
-"status": 4,
-"message": "Masternode successfully started"
-```
 # Licence
 Basecoin is released under the terms of the MIT license. See COPYING for more information or see https://opensource.org/licenses/MIT.
