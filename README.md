@@ -67,7 +67,7 @@ Desktop CONSOLE WALLET commands
 
 VPS command line
 ```
-wget && https://www.youtube.com/redirect?q=https%3A%2F%2Fraw.githubusercontent.com%2FViniciusBitnoob%2FBitnodes%2Fmaster%2FMnBasecoin_Ubunto18.sh&v=4hLQv_yh0mA&redir_token=QUFFLUhqa1BjVUt3NHhseTExZWQ0aGdlZm5teGtmalNBZ3xBQ3Jtc0tuTEJJam5uaXhHZkc2czM0OVBXS2REeEFBSXc2REdKdkZ6cTJ5azFzTTNxWFU5b0lNNS1mMlVrQloxTlJPX05oUGUwWXc0c1VwNlcyNk84ak54bC1OTWp1VXN6UkY5TXFPVmNpM0h1SktZbzloZXhlRQ%3D%3D&event=video_description bash MnBasecoin_Ubunto18. sh
+wget https://raw.githubusercontent.com/ViniciusBitnoob/Bitnodes/master/MnBasecoin_Ubunto18.sh && bash MnBasecoin_Ubunto18.sh
 ```
 Stop Masternode (VPS)
 ```
