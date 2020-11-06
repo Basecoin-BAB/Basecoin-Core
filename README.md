@@ -5,34 +5,6 @@
 # How to install and configure the BAB/BaseCoin Wallet
 [![How to install and configure the BAB/BaseCoin Wallet](http://img.youtube.com/vi/-HglCvikwDw/0.jpg)](http://www.youtube.com/watch?v=-HglCvikwDw "How to install and configure the BAB/BaseCoin Wallet")
 
-# Add Nodes
-```
-# basecoin.conf
-addnode = 72.19.15.173
-addnode = 173.249.39.84
-addnode = 173.249.34.236
-addnode = 144.91.87.7
-addnode = 136.144.171.201
-addnode = 207.180.245.239
-addnode = 5.189.162.110
-addnode = 72.19.15.174
-addnode = 187.14.249.145
-addnode = 177.66.147.35
-addnode = 144.91.75.15
-addnode = 191.30.221.134
-addnode = 86.57.193.186
-addnode = 72.19.15.173
-addnode = 72.19.15.95
-addnode = 179.199.118.147
-addnode = 45.169.28.19
-addnode = 187.24.231.218
-addnode = 73.60.248.106
-addnode = 72.19.15.94
-addnode = 170.254.144.247
-whitelist = 173.249.39.84
-whitelist = 173.249.34.236
-whitelist = 144.91.87.7
-```
 # Staking
 Enable
 ```
